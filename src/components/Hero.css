@@ -305,10 +305,7 @@
     font-size: 10px;
     letter-spacing: 0.12em;
   }
-  .hero-script {
-    right: 0;
-    bottom: -1.3em;
-  }
+  /* 手写体与桌面端一致：交叠在 PORTFOLIO 右下角（不再单独下移一行） */
   .hero-meta--right {
     display: none;
   }
