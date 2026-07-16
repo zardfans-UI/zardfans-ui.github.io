@@ -1,8 +1,19 @@
+import { useEffect } from 'react'
 import { useLang } from '../LangContext.jsx'
 import './FooterContact.css'
 
 export default function FooterContact() {
   const { t } = useLang()
+
+  // 不蒜子访问量统计：脚本加载后自动填充 busuanzi_value_site_pv 并显示容器
+  useEffect(() => {
+    if (document.getElementById('busuanzi-script')) return
+    const s = document.createElement('script')
+    s.id = 'busuanzi-script'
+    s.async = true
+    s.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+    document.body.appendChild(s)
+  }, [])
 
   return (
     <section className="footer" id="contact">
@@ -43,7 +54,13 @@ export default function FooterContact() {
                 </li>
               ))}
             </ul>
-            <p className="footer-card-note">UI/UX · Design System · AI Workflow</p>
+            <p className="footer-card-note">
+              <span>UI/UX · Design System · AI Workflow</span>
+              {/* 容器初始隐藏，不蒜子脚本取到数据后自动填充并显示 */}
+              <span id="busuanzi_container_site_pv" className="footer-visits" style={{ display: 'none' }}>
+                ◉ <b id="busuanzi_value_site_pv" /> VISITS
+              </span>
+            </p>
           </aside>
         </div>
 

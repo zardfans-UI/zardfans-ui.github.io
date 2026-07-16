@@ -150,9 +150,26 @@
 
 .footer-card-note {
   margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
   font-size: 12px;
   letter-spacing: 0.14em;
   color: var(--text-3);
+}
+
+/* 访问量统计（不蒜子填充） */
+.footer-visits {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.footer-visits b {
+  font-weight: 700;
+  color: var(--accent-soft);
 }
 
 /* ---- 底栏 ---- */
