@@ -45,6 +45,14 @@
   font-weight: 400;
   color: var(--text-3);
   letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+/* 超窄屏放不下年份副标，隐藏避免换行 */
+@media (max-width: 420px) {
+  .nav-logo-sub {
+    display: none;
+  }
 }
 
 .nav-links {
@@ -172,6 +180,9 @@
 
 .nav-burger span {
   display: block;
+  /* 显式宽度：iOS Safari 的 button 作为 flex 容器不会拉伸子元素，依赖 stretch 会宽度为 0 */
+  width: 22px;
+  margin: 0 auto;
   height: 2px;
   background: var(--text);
   border-radius: 2px;

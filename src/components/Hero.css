@@ -150,10 +150,11 @@
   position: absolute;
   right: -0.6em;
   bottom: -0.42em;
-  font-family: 'Segoe Script', 'Lucida Handwriting', 'Brush Script MT', cursive;
+  /* Caveat 为自托管 webfont；后备栈覆盖 Windows/iOS 系统手写体 */
+  font-family: 'Caveat', 'Segoe Script', 'Snell Roundhand', 'Bradley Hand', 'Brush Script MT', cursive;
   font-style: normal;
-  font-weight: 400;
-  font-size: clamp(15px, 1.7vw, 30px);
+  font-weight: 500;
+  font-size: clamp(19px, 2.1vw, 38px);
   letter-spacing: 0.06em;
   white-space: nowrap;
   color: var(--accent-soft);
