@@ -1,0 +1,188 @@
+.footer {
+  min-height: 68vh;
+  min-height: 68svh;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 600px at 88% 42%, rgba(43, 92, 205, 0.16), transparent 62%),
+    radial-gradient(700px 400px at 0% 100%, rgba(43, 92, 205, 0.1), transparent 60%),
+    #030408;
+}
+
+.footer-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 72px;
+  padding-bottom: 32px;
+  min-height: 68vh;
+  min-height: 68svh;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: clamp(40px, 6vw, 120px);
+  margin: auto 0;
+}
+
+/* ---- 左侧 ---- */
+/* 中等字重大标题，参考 xiaoY 收尾页：行距/字距紧凑 */
+.footer-title {
+  margin-top: 0;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: clamp(44px, 6.5vw, 108px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  color: #eef2f9;
+}
+
+.footer-title em {
+  font-style: normal;
+  color: var(--accent-soft);
+  transition: text-shadow 0.3s ease;
+}
+
+/* 光效仅在鼠标移入该字母时出现，范围为原来的一半 */
+.footer-title em:hover {
+  text-shadow: 0 0 13px rgba(127, 198, 255, 0.75), 0 0 30px rgba(61, 127, 255, 0.4);
+}
+
+/* 短箭头（参考 xiaoY：紧凑粗箭头） */
+.footer-arrow {
+  width: 0.5em;
+  height: 0.5em;
+  vertical-align: baseline;
+  transition: transform 0.35s ease;
+}
+
+.footer-title:hover .footer-arrow {
+  transform: translate(5px, 5px);
+}
+
+.footer-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #06090f;
+  background: linear-gradient(120deg, #7fc6ff, #3d7fff);
+  border-radius: 999px;
+  padding: 10px 22px;
+  box-shadow: 0 0 34px rgba(61, 127, 255, 0.4);
+}
+
+.footer-logo-pill i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #06090f;
+}
+
+/* ---- 右侧联系卡片 ---- */
+.footer-card {
+  border: 1px solid var(--line-strong);
+  border-radius: 22px;
+  padding: clamp(26px, 2.4vw, 42px);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.footer-card-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--accent-soft);
+}
+
+.footer-card ul {
+  list-style: none;
+  margin-top: 18px;
+}
+
+.footer-card li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.footer-card li:last-child {
+  border-bottom: none;
+}
+
+.fc-label {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--text-3);
+  text-transform: uppercase;
+}
+
+.footer-card a,
+.fc-value {
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.footer-card a {
+  transition: color 0.25s ease;
+}
+
+.footer-card a:hover {
+  color: var(--accent-soft);
+}
+
+.footer-card-note {
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--text-3);
+}
+
+/* ---- 底栏 ---- */
+.footer-bar {
+  margin-top: auto;
+  padding-top: clamp(48px, 6vw, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+}
+
+@media (max-width: 1000px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 860px) {
+  .footer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer-slogan {
+    order: -1;
+  }
+}

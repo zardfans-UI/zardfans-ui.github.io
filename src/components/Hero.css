@@ -1,0 +1,318 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background: #030408;
+}
+
+/* ---- 背景层 ---- */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-galaxy {
+  position: absolute !important;
+  inset: 0;
+  /* Galaxy 在开场结束后才挂载，用 CSS 淡入衔接 */
+  opacity: 0;
+  animation: galaxyIn 1.6s ease forwards;
+}
+
+@keyframes galaxyIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.hero-bg-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 6, 11, 0.3) 0%, rgba(4, 6, 11, 0) 40%, rgba(4, 6, 11, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* ---- 内容层 ---- */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 104px;
+  padding-bottom: 40px;
+  pointer-events: none;
+}
+
+.hero-content a,
+.hero-content button {
+  pointer-events: auto;
+}
+
+.hero-main {
+  margin: auto 0;
+  padding: 6vh 0;
+}
+
+/* 徽章 pill */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 8px 18px;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.hero-badge:hover {
+  border-color: rgba(140, 170, 255, 0.6);
+  color: var(--text);
+}
+
+.hero-badge i {
+  font-style: normal;
+  transition: transform 0.25s ease;
+}
+
+.hero-badge:hover i {
+  transform: translateX(3px);
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+/* ---- 标题（排版参考 XIAOYANG：名号 accent 色 + PORTFOLIO 白，手写体交叠右下） ---- */
+.hero-title {
+  margin-top: 40px;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 每行标题的遮罩壳：GSAP 揭示动画结束后会把 overflow 释放为 visible */
+.title-line {
+  display: block;
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+.hero-title-name {
+  display: inline-block;
+  font-size: clamp(48px, 8.4vw, 136px);
+  font-weight: 700;
+  background: linear-gradient(95deg, #9db9ff 0%, #5b8cff 45%, #7fc6ff 80%, #2b50c8 105%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 30px rgba(91, 140, 255, 0.35));
+}
+
+.hero-title-word {
+  position: relative;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: clamp(40px, 7vw, 112px);
+  font-weight: 700;
+  color: #f4f7fc;
+  letter-spacing: 0.04em;
+}
+
+/* 手写体 slogan，交叠在主文案右下角 */
+.hero-script {
+  position: absolute;
+  right: -0.6em;
+  bottom: -0.42em;
+  font-family: 'Segoe Script', 'Lucida Handwriting', 'Brush Script MT', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(15px, 1.7vw, 30px);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: var(--accent-soft);
+  transform: rotate(-7deg);
+  text-shadow: 0 0 22px rgba(127, 198, 255, 0.5);
+  pointer-events: none;
+}
+
+/* SplitText 字符（入场由 GSAP 编排） */
+.split-text {
+  display: inline-block;
+}
+
+.split-char {
+  display: inline-block;
+}
+
+/* ---- 描述两行 ---- */
+.hero-desc {
+  margin-top: clamp(28px, 3.5vh, 44px);
+  font-size: clamp(14px, 1.25vw, 18px);
+  line-height: 2;
+  color: var(--text-2);
+  letter-spacing: 0.06em;
+}
+
+/* 按钮组 */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 38px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 13px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  backdrop-filter: blur(6px);
+  /* 固定最小宽度并居中，保证中/英文案下两个按钮宽度一致 */
+  min-width: 176px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.hero-btn i {
+  font-style: normal;
+  margin-left: 4px;
+}
+
+.hero-btn:hover {
+  border-color: rgba(140, 170, 255, 0.7);
+  background: rgba(91, 140, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-btn--primary {
+  background: #f4f7fc;
+  border-color: transparent;
+  color: #0a0d14;
+  box-shadow: 0 8px 32px rgba(180, 205, 255, 0.22);
+}
+
+.hero-btn--primary:hover {
+  background: #ffffff;
+  box-shadow: 0 12px 44px rgba(180, 205, 255, 0.4);
+}
+
+/* ---- 底部信息 ---- */
+.hero-bottom {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hero-meta {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+/* 左下角中文文案：中文小字在深灰下观感偏暗，单独提亮一档与右侧对齐 */
+.hero-bottom .hero-meta:first-child {
+  color: var(--text-2);
+}
+
+/* 绝对定位到屏幕水平中心，不受左右文案长度（中/英）影响 */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--text-3);
+}
+
+.hero-scroll i {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(180deg, var(--accent-soft), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    transform-origin: top;
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  /* 移动端不再撑满整屏，高度约为原来的一半 */
+  .hero {
+    min-height: 52vh;
+    min-height: 52svh;
+  }
+  .hero-content {
+    padding-top: 88px;
+    padding-bottom: 24px;
+  }
+  .hero-main {
+    padding: 3vh 0;
+  }
+  .hero-badge {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+  .hero-script {
+    right: 0;
+    bottom: -1.3em;
+  }
+  .hero-meta--right {
+    display: none;
+  }
+  /* 窄屏下与左侧文案冲突，直接隐藏 */
+  .hero-scroll {
+    display: none;
+  }
+}

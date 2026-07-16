@@ -1,0 +1,105 @@
+.strengths {
+  padding: clamp(80px, 10vw, 160px) 0;
+  background:
+    radial-gradient(900px 500px at 10% 20%, rgba(43, 92, 205, 0.1), transparent 60%),
+    var(--bg);
+}
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.6vw, 28px);
+}
+
+.strength-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(26px, 2.2vw, 40px);
+  background: var(--panel);
+  transition: border-color 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+
+.strength-card:hover {
+  border-color: rgba(61, 127, 255, 0.45);
+  background: var(--panel-hover);
+  transform: translateY(-6px);
+}
+
+.strength-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.strength-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.strength-en {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--text-3);
+}
+
+.strength-card h3 {
+  font-size: clamp(19px, 1.6vw, 24px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.strength-card p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.85;
+}
+
+/* MagicBento 式光标辉光：内部柔光 + 描边高亮都跟随光标 */
+.strength-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(91, 140, 255, 0.14), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.strength-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(127, 178, 255, 0.65), transparent 70%) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.strength-card:hover .strength-glow,
+.strength-card:hover .strength-border {
+  opacity: 1;
+}
+
+@media (max-width: 1100px) {
+  .strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
+}
