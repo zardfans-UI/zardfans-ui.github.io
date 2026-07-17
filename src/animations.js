@@ -234,7 +234,8 @@ export function initAnimations() {
             { clipPath: 'inset(0% 0% 0% 0% round 20px)', duration: 0.85, clearProps: 'clipPath' },
             0.05,
           )
-          .fromTo(img, { scale: 1.06 }, { scale: 1, duration: 1.0, ease: 'power3.out', clearProps: 'transform' }, 0)
+        // 动效演示卡内是 video 而非 img
+        if (img) tl.fromTo(img, { scale: 1.06 }, { scale: 1, duration: 1.0, ease: 'power3.out', clearProps: 'transform' }, 0)
 
         // 轻视差：画框在滚动中缓慢漂移（移动端关闭省电）
         if (!isMobile) {

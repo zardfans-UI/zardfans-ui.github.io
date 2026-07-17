@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useLang } from '../LangContext.jsx'
+import MotionDemo from './MotionDemo.jsx'
 import './Works.css'
 
 export default function Works() {
@@ -91,7 +92,7 @@ export default function Works() {
                 const globalIndex = c.start - 1 + idx
                 // 通栏页：开篇章节全部、各章首页、以及压轴的设计方法论总结页
                 const wide = c.id === 'overview' || idx === 0 || (c.id === 'ai' && globalIndex === c.end - 1)
-                return (
+                const card = (
                   <figure
                     className={`work-card reveal ${wide ? 'work-card--wide' : ''}`}
                     key={w.id}
@@ -112,6 +113,16 @@ export default function Works() {
                     </div>
                   </figure>
                 )
+                // 第 31 页（猜正反面/迎财神）下方插入动效演示卡
+                if (w.id === t.motionDemo.afterPage) {
+                  return (
+                    <div style={{ display: 'contents' }} key={w.id}>
+                      {card}
+                      <MotionDemo demo={t.motionDemo} />
+                    </div>
+                  )
+                }
+                return card
               })}
             </div>
           </div>

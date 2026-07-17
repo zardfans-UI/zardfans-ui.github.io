@@ -10,6 +10,15 @@ const makeWorks = (dir) =>
 
 const zh = {
   works: makeWorks('cn'),
+  // 动效演示：插在作品集第 31 页（猜正反面/迎财神）下方
+  motionDemo: {
+    afterPage: '31',
+    badge: 'MOTION DEMO',
+    items: [
+      { src: '/videos/coin-flip.mp4', label: '猜正反面 · 奖金翻倍' },
+      { src: '/videos/god-of-wealth.mp4', label: '迎财神 · 得奖金' },
+    ],
+  },
   ui: {
     navLinks: [
       { id: 'about', label: '个人经历' },
@@ -146,6 +155,14 @@ const zh = {
 
 const en = {
   works: makeWorks('en'),
+  motionDemo: {
+    afterPage: '31',
+    badge: 'MOTION DEMO',
+    items: [
+      { src: '/videos/coin-flip.mp4', label: 'Coin Flip · Double the Bonus' },
+      { src: '/videos/god-of-wealth.mp4', label: 'God of Wealth · Bonus' },
+    ],
+  },
   ui: {
     navLinks: [
       { id: 'about', label: 'Experience' },
