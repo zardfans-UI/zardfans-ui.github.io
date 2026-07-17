@@ -1,4 +1,3 @@
-import { works } from '../content.js'
 import { useLang } from '../LangContext.jsx'
 import HeroBackground from './HeroBackground.jsx'
 import SplitText from './SplitText.jsx'
@@ -15,7 +14,7 @@ export default function Hero() {
         <div className="hero-main">
           <a className="hero-badge" href="#works">
             <span className="hero-badge-dot" />
-            {t.site.years} · {works.length} PAGES SELECTED WORKS
+            {t.site.years} · {t.works.length} PAGES SELECTED WORKS
             <i>→</i>
           </a>
 

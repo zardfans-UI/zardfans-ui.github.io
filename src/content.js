@@ -1,13 +1,15 @@
 // 站点全部文案与数据（中/英双语），语言状态见 LangContext.jsx
 // 原则：中文态下本就是英文的文案（PORTFOLIO、章节英文副标等）两种语言下保持不变
 
-// 作品集图片（语言无关；p44 为 THANK YOU 封底页，网站上不展示）
-export const works = Array.from({ length: 43 }, (_, i) => {
-  const n = String(i + 1).padStart(2, '0')
-  return { id: n, src: `/portfolio/p${n}.webp`, alt: `Portfolio P.${n}` }
-})
+// 作品集图片：中英各一套（public/portfolio/cn|en/），随语言切换；封底页不展示
+const makeWorks = (dir) =>
+  Array.from({ length: 43 }, (_, i) => {
+    const n = String(i + 1).padStart(2, '0')
+    return { id: n, src: `/portfolio/${dir}/p${n}.webp`, alt: `Portfolio P.${n}` }
+  })
 
 const zh = {
+  works: makeWorks('cn'),
   ui: {
     navLinks: [
       { id: 'about', label: '个人经历' },
@@ -143,6 +145,7 @@ const zh = {
 }
 
 const en = {
+  works: makeWorks('en'),
   ui: {
     navLinks: [
       { id: 'about', label: 'Experience' },

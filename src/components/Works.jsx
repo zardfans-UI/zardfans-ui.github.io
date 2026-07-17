@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
-import { works } from '../content.js'
 import { useLang } from '../LangContext.jsx'
 import './Works.css'
 
 export default function Works() {
   const { t } = useLang()
   const chapters = t.workChapters
+  const works = t.works // 图片随语言切换（cn/en 两套）
   const [active, setActive] = useState(null) // 当前 lightbox 索引（全局页码 - 1）
   const [currentChapter, setCurrentChapter] = useState(chapters[0].id)
 
