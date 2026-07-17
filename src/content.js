@@ -15,6 +15,7 @@ const zh = {
     afterPage: '31',
     badge: 'MOTION DEMO',
     items: [
+      { src: '/videos/gift-box.mp4', label: '礼盒打包 · 赠送好友' },
       { src: '/videos/coin-flip.mp4', label: '猜正反面 · 奖金翻倍' },
       { src: '/videos/god-of-wealth.mp4', label: '迎财神 · 得奖金' },
     ],
@@ -159,6 +160,7 @@ const en = {
     afterPage: '31',
     badge: 'MOTION DEMO',
     items: [
+      { src: '/videos/gift-box.mp4', label: 'Gift Box · Send to a Friend' },
       { src: '/videos/coin-flip.mp4', label: 'Coin Flip · Double the Bonus' },
       { src: '/videos/god-of-wealth.mp4', label: 'God of Wealth · Bonus' },
     ],
