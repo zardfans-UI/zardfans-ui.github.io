@@ -262,11 +262,46 @@
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
 }
 
+/* 标签宽度跟随视频（width:0 + min-width:100% 使其不参与撑宽），超长自动换行居中 */
 .motion-item p {
+  width: 0;
+  min-width: 100%;
+  text-align: center;
   font-size: clamp(9px, 1.2cqi, 15px);
   color: var(--text-2);
   letter-spacing: 0.08em;
-  white-space: nowrap;
+  line-height: 1.5;
+}
+
+/* 移动端：解除 16:9 高度约束，视频按列宽自适应放大，标签换行 */
+@media (max-width: 680px) {
+  .work-motion {
+    aspect-ratio: auto;
+  }
+  .work-motion .work-frame {
+    position: relative;
+    inset: auto;
+  }
+  .motion-items {
+    position: static;
+    padding: 48px 14px 16px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .motion-item {
+    flex: 1;
+    min-width: 0;
+    height: auto;
+    gap: 8px;
+  }
+  .motion-item video {
+    height: auto;
+    width: 100%;
+  }
+  .motion-badge {
+    top: 18px;
+    left: 16px;
+  }
 }
 
 /* ---- Lightbox ---- */
