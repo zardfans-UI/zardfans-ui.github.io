@@ -295,8 +295,11 @@
     gap: 8px;
   }
   .motion-item video {
-    height: auto;
     width: 100%;
+    /* 三个视频源比例略有差异（2.155~2.183），统一锁定比例避免高度参差、标签错位 */
+    aspect-ratio: 9 / 19.5;
+    height: auto;
+    object-fit: cover;
   }
   .motion-badge {
     top: 18px;
