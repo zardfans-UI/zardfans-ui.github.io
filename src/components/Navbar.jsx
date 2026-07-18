@@ -65,16 +65,24 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* 中英文切换 */}
-        <button
-          className="nav-lang"
-          aria-label="切换语言 / Switch language"
-          onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
-        >
-          <span className={lang === 'zh' ? 'nav-lang--on' : ''}>中</span>
-          <i>/</i>
-          <span className={lang === 'en' ? 'nav-lang--on' : ''}>EN</span>
-        </button>
+        {/* 简/繁/EN 三语切换 */}
+        <div className="nav-lang" role="group" aria-label="切换语言 / Switch language">
+          {[
+            ['zh', '简'],
+            ['zhHant', '繁'],
+            ['en', 'EN'],
+          ].map(([code, label], i) => (
+            <span key={code} className="nav-lang-seg">
+              {i > 0 && <i>/</i>}
+              <button
+                className={lang === code ? 'nav-lang--on' : ''}
+                onClick={() => setLang(code)}
+              >
+                {label}
+              </button>
+            </span>
+          ))}
+        </div>
 
         <a className="nav-cta nav-cta--desktop" href="#contact">
           {t.ui.contact} →

@@ -1,5 +1,6 @@
-// 站点全部文案与数据（中/英双语），语言状态见 LangContext.jsx
-// 原则：中文态下本就是英文的文案（PORTFOLIO、章节英文副标等）两种语言下保持不变
+// 站点全部文案与数据（简体/繁体/英文三语），语言状态见 LangContext.jsx
+// 原则：中文态下本就是英文的文案（PORTFOLIO、章节英文副标等）各语言下保持不变
+// 注意：改文案需同步 zh / zhHant / en 三份；繁体作品图无独立版本，沿用简体图
 
 // 作品集图片：中英各一套（public/portfolio/cn|en/），随语言切换；封底页不展示
 const makeWorks = (dir) =>
@@ -154,6 +155,151 @@ const zh = {
   ],
 }
 
+const zhHant = {
+  works: makeWorks('cn'), // 繁体沿用简体作品图
+  motionDemo: {
+    afterPage: '31',
+    badge: 'MOTION DEMO',
+    items: [
+      { src: '/videos/gift-box.mp4', label: '禮盒打包 · 贈送好友' },
+      { src: '/videos/coin-flip.mp4', label: '猜正反面 · 獎金翻倍' },
+      { src: '/videos/god-of-wealth.mp4', label: '迎財神 · 得獎金' },
+    ],
+  },
+  ui: {
+    navLinks: [
+      { id: 'about', label: '個人經歷' },
+      { id: 'strengths', label: '個人優勢' },
+      { id: 'works', label: '近期作品' },
+    ],
+    contact: '聯絡我',
+    viewWorks: '查看作品',
+    viewLarge: '查看大圖 +',
+    nowTag: 'NOW · 最近經歷',
+    sectionAbout: '個人經歷',
+    sectionStrengths: '個人優勢',
+    sectionWorks: '近期作品集',
+    heroDesc1: '陳瑞躍 · 高級 UI/UX 設計師，10 年設計經驗 · 5 年出海產品',
+    heroDesc2: '專注複雜商業產品的多場景適配設計，多次主導項目從 0 到 1',
+    slogan: '「 專注於複雜商業產品的多場景設計 」',
+    backToTop: '回到頂部',
+    lightbox: { close: '關閉', prev: '上一頁', next: '下一頁' },
+  },
+  site: {
+    name: '陳瑞躍',
+    alias: 'ZARDFANS',
+    title: '高級 UI/UX 設計師',
+    years: '2023 - 2026',
+    exp: '10 年設計經驗',
+    intro:
+      '專注複雜交易類產品的體驗設計與設計系統建設，擅長在高資訊密度、多狀態反饋與資金敏感場景下，建立清晰、可信、可擴展的交易體驗。多次主導項目從 0 到 1，均有數據驗證。',
+    contacts: [
+      { label: 'WeChat', value: '158 6074 3962', href: null },
+      { label: 'WhatsApp', value: '852 5233 1573', href: null },
+      { label: 'Email', value: '929671507@qq.com', href: 'mailto:929671507@qq.com' },
+      { label: 'ZCOOL', value: 'zcool.com.cn/u/2901784', href: 'https://www.zcool.com.cn/u/2901784' },
+      { label: 'Dribbble', value: 'dribbble.com/zardfans', href: 'https://dribbble.com/zardfans' },
+    ],
+  },
+  currentJob: {
+    company: 'HONG KONG NOVA LIMITED',
+    role: 'UI 高級設計師',
+    period: '2023.11 — 2026.07',
+    location: '出海 · 交易類產品',
+    summary:
+      '負責三條交易類產品線（綜合競猜平台 App/Web、多語言刮刮樂平台、直播競猜）的體驗設計與設計系統建設，覆蓋高頻操作、資金感知、多狀態反饋等複雜交易場景。',
+    highlights: [
+      '主導競猜平台 App/Web 體驗升級，重構大廳與競猜頁資訊層級，提出核心操作模組「佈局無關化」策略',
+      '從 0 到 1 搭建 App/Web 雙端設計系統：語義化 token + 1920—H5 響應式斷點規範',
+      '制定中/英/越/西多語言彈性佈局規則，主題拆解為 5 個可替換視覺變量，「換主題不重做」',
+      '建立 AI 設計提效工作流：AI 效果圖 → 前端還原 → Figma 可編輯設計稿全鏈路',
+    ],
+    stats: [
+      { value: '-16.7%', label: '上線當月大廳流失率環比', good: 'down' },
+      { value: '+10.2%', label: '競猜完成率環比', good: 'up' },
+      { value: '+26.5%', label: 'Web 競猜頁停留時長環比', good: 'up' },
+      { value: '-33.1%', label: '單主題 UI 開發週期', good: 'down' },
+    ],
+  },
+  pastJobs: [
+    {
+      company: '深圳刀鋒互娛網絡科技',
+      role: '高級 UI 設計師',
+      period: '2021.08 — 2023.08',
+      desc: 'UGGame（海外租號玩）、FUNBOX（盲盒電商）雙業務線全端設計。FUNBOX 從 0 到 1，一個月完成 v1.0 共 43 頁；設計開發效率提升近 70%。',
+    },
+    {
+      company: '實創時新（北京）科技',
+      role: 'UX 設計師',
+      period: '2020.07 — 2021.06',
+      desc: '網盤產品「安全星球」v0.1—v2.8 全端設計迭代，上線不到一年累計用戶 12 萬。',
+    },
+    {
+      company: '深圳市駿昊順科技',
+      role: 'UX 設計師',
+      period: '2019.11 — 2020.06',
+      desc: '「江鳥民宿」小程序、消防管理系統 Web/App、數據大屏從立項到迭代的全流程設計。',
+    },
+    {
+      company: '廈門跨境網信息技術',
+      role: 'UI 設計師',
+      period: '2018.06 — 2019.03',
+      desc: '跨境電商國際站/國內站前後台與小程序 UI 設計，主持設計評審。',
+    },
+    {
+      company: '宇鑫（廈門）貨幣兌換',
+      role: 'UI 設計師',
+      period: '2016.06 — 2018.04',
+      desc: 'B 端業務報表 App、後台系統與官網的交互、視覺與動效設計，制定設計規範。',
+    },
+  ],
+  strengths: [
+    {
+      num: '01',
+      title: '複雜交易產品',
+      en: 'COMPLEX TRADING',
+      desc: '10 年覆蓋 C 端交易、電商、工具、B 端產品，近 3 年深耕高頻交易與資金敏感場景，擅長在高資訊密度下建立清晰、可信、可擴展的交易體驗。',
+    },
+    {
+      num: '02',
+      title: '方法論',
+      en: 'METHODOLOGY',
+      desc: '「先鎖定不變量，再系統化開放變量」——先定義操作路徑、反饋與視覺權重等不變核心，再將變化拆解為變量清單與設計 token，讓適配從「重做」降級為「替換」。',
+    },
+    {
+      num: '03',
+      title: 'AI 工作流',
+      en: 'AI WORKFLOW',
+      desc: '設計系統封裝為 AI Skill，跑通 AI 效果圖到可編輯設計稿的自動還原鏈路，Figma Agent 批量多語言調整落地實戰。人定義不變量與規則，AI 執行規模。',
+    },
+    {
+      num: '04',
+      title: '國際化與本地化',
+      en: 'GLOBALIZATION',
+      desc: '5 年出海產品經驗，結合 Hofstede 文化模型與用戶調研制定國際化與本地化設計策略，覆蓋中 / 英 / 越 / 西等多語言場景。',
+    },
+    {
+      num: '05',
+      title: '設計系統建設',
+      en: 'DESIGN SYSTEM',
+      desc: '多次主導組件庫、設計規範、語義化 token 體系從 0 到 1 落地，支撐多玩法、多主題、多端快速擴展，效率提升均有量化數據。',
+    },
+    {
+      num: '06',
+      title: '協作與韌性',
+      en: 'COLLABORATION',
+      desc: '跨團隊協同保障 UI 還原度與體驗質量，能短期承受高強度交付使項目如期上線，樂於在團隊內分享方法論。',
+    },
+  ],
+  workChapters: [
+    { id: 'overview', num: 'A', title: '開篇 · 能力矩陣', en: 'OVERVIEW & SKILL MATRIX', start: 1, end: 2 },
+    { id: 'king', num: 'B', title: '「皇者」競猜交易平台', en: 'KING GROUP · TRADING APP/WEB', start: 3, end: 18 },
+    { id: 'fun', num: 'C', title: '「全民樂」刮刮樂平台 H5', en: 'FUN FOR ALL · SCRATCH H5', start: 19, end: 31 },
+    { id: 'live', num: 'D', title: '直播平台競猜 H5', en: 'LIVE STREAMING BETTING H5', start: 32, end: 39 },
+    { id: 'ai', num: 'E', title: 'AI 提效 & 設計方法論', en: 'AI WORKFLOW & METHODOLOGY', start: 40, end: 43 },
+  ],
+}
+
 const en = {
   works: makeWorks('en'),
   motionDemo: {
@@ -299,4 +445,4 @@ const en = {
   ],
 }
 
-export const content = { zh, en }
+export const content = { zh, zhHant, en }
