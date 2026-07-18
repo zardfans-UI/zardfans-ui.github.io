@@ -223,8 +223,14 @@
   .nav-cta--desktop {
     display: none;
   }
+  /* 移动端更紧凑：内间距收窄，与右侧汉堡按钮间距减半 */
   .nav-lang {
-    padding: 6px 12px;
+    padding: 5px 9px;
+    gap: 4px;
+    margin-right: 12px;
+  }
+  .nav-lang-seg {
+    gap: 4px;
   }
   .nav-burger {
     display: flex;
