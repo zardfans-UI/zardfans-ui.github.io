@@ -3,3 +3,8 @@ dist/
 *.local
 .DS_Store
 Thumbs.db
+
+# 根目录的视频/图片源素材（转码产物在 public/ 里跟踪）
+/*.mp4
+/*.mov
+/*.png

@@ -26,22 +26,25 @@ function HeroBackground() {
 
   return (
     <div className="hero-bg" aria-hidden="true">
-      <Suspense fallback={null}>
-        <Galaxy
-          mouseRepulsion={true}
-          mouseInteraction={true}
-          density={0.3}
-          glowIntensity={0.2}
-          saturation={0.5}
-          hueShift={240}
-          twinkleIntensity={0.2}
-          rotationSpeed={0}
-          repulsionStrength={0.5}
-          starSpeed={0.1}
-          speed={0.2}
-          className="hero-bg-galaxy"
-        />
-      </Suspense>
+      {/* 视频背景生效时卸载星空，释放 WebGL/GPU；探测前的短暂挂载藏在开场幕布后，无感知 */}
+      {!videoOk && (
+        <Suspense fallback={null}>
+          <Galaxy
+            mouseRepulsion={true}
+            mouseInteraction={true}
+            density={0.3}
+            glowIntensity={0.2}
+            saturation={0.5}
+            hueShift={240}
+            twinkleIntensity={0.2}
+            rotationSpeed={0}
+            repulsionStrength={0.5}
+            starSpeed={0.1}
+            speed={0.2}
+            className="hero-bg-galaxy"
+          />
+        </Suspense>
+      )}
       {videoOk && <video className="hero-bg-video" src="/hero.mp4" autoPlay muted loop playsInline />}
       <div className="hero-bg-mask" />
     </div>
