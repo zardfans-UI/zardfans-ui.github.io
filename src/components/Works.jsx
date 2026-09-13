@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useLang } from '../LangContext.jsx'
 import MotionDemo from './MotionDemo.jsx'
+import UsLuck from './UsLuck.jsx'
 import './Works.css'
 
 export default function Works() {
@@ -53,6 +54,10 @@ export default function Works() {
           </h2>
           <span className="en">Selected Works · {works.length} Pages · 2023-2026</span>
         </div>
+      </div>
+
+      <div className="container">
+        <UsLuck />
       </div>
 
       {/* 章节导航 chips */}
